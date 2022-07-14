@@ -16,48 +16,28 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Welcome to Flutter',
       home: Scaffold(
-          appBar: AppBar(
-              title: Row(
-            children: const <Widget>[
-              Icon(
-                Icons.arrow_back,
-                color: Colors.white,
-                size: 26,
-                semanticLabel: "Atras",
-              ),
-              SizedBox(width: 10),
-              Text(
-                "Share",
-                textAlign: TextAlign.center,
-              )
-            ],
-          )),
-          body: Stack(
-            alignment: AlignmentDirectional.center,
-            children: const <Widget>[
-              Image(
-                image: NetworkImage(
-                    'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg'),
-              ),
-              Text("Hola", textAlign: TextAlign.center,),
-            ],
-          )
-),
+        appBar: AppBar(
+          title: const Text('Welcome to Flutter'),
+        ),
+        body: const Center(
+          child: RandomWords(),
+        ),
+      ),
     );
   }
 }
 
 class RandomWords extends StatefulWidget {
-  const RandomWords({super.key});
+    const RandomWords({super.key});
 
-  @override
-  State<RandomWords> createState() => _RandomWordsState();
-}
-
-class _RandomWordsState extends State<RandomWords> {
-  @override
-  Widget build(BuildContext context) {
-    final wordPair = WordPair.random();
-    return Text(wordPair.asPascalCase);
+    @override
+    State<RandomWords> createState() => _RandomWordsState();
   }
-}
+
+  class _RandomWordsState extends State<RandomWords> {
+    @override
+    Widget build(BuildContext context) {
+      final wordPair = WordPair.random();
+      return Text(wordPair.asPascalCase);
+    }
+  }
