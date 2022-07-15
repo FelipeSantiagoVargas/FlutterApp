@@ -1,4 +1,6 @@
 import "package:flutter/material.dart";
+import 'package:my_app/button_purple.dart';
+import 'package:my_app/review_list.dart';
 
 class DescriptionPlace extends StatelessWidget {
 
@@ -14,7 +16,7 @@ class DescriptionPlace extends StatelessWidget {
 
     final star_border = Container(
       margin: EdgeInsets.only(
-        top: 303,
+        top: 343,
         right: 3
       ),
       child: Icon(
@@ -25,7 +27,7 @@ class DescriptionPlace extends StatelessWidget {
 
     final star_half = Container(
       margin: EdgeInsets.only(
-        top: 303,
+        top: 343,
         right: 3
       ),
       child: Icon(
@@ -36,7 +38,7 @@ class DescriptionPlace extends StatelessWidget {
 
     final star = Container(
       margin: EdgeInsets.only(
-        top: 303,
+        top: 343,
         right: 3
       ),
       child: Icon(
@@ -57,7 +59,7 @@ class DescriptionPlace extends StatelessWidget {
     final title_stars = Row(
       children: <Widget>[
         Container(
-          margin: EdgeInsets.only(top: 300, left: 20, right: 20),
+          margin: EdgeInsets.only(top: 340, left: 20, right: 20),
           child: Text(
             namePlace,
             style: TextStyle(fontFamily: "Lato",fontSize: 30,fontWeight: FontWeight.w900),
@@ -78,9 +80,11 @@ class DescriptionPlace extends StatelessWidget {
 
 
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         title_stars,
-        description
+        description,
+        ButtonPurple("Navigate")
       ],
     );
   }

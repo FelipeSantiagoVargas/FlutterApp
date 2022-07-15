@@ -4,7 +4,12 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
+import 'package:my_app/card_image.dart';
+import 'package:my_app/gradient_back.dart';
+import 'package:my_app/header_appbar.dart';
+import 'package:my_app/review_list.dart';
 import "description_place.dart";
+import 'package:flutter/services.dart';
 
 void main() {
   runApp(MyApp());
@@ -20,13 +25,22 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setEnabledSystemUIOverlays([]);
     return MaterialApp(
       title: 'Welcome to Flutter',
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Welcome to Flutter'),
-        ),
-        body: new DescriptionPlace("Bahamas",4,description)
+        body:Stack(
+          children: <Widget>[
+            ListView(
+              children: <Widget>[
+                DescriptionPlace("Bahamas",4,description),
+                ReviewList(),
+              ],
+            ),
+            HeaderAppBar()
+          ],
+        ) 
+        //SingleChildScrollView( scrollDirection: Axis.vertical, child: DescriptionPlace("Bahamas",4,description),) 
       ),
     );
   }
